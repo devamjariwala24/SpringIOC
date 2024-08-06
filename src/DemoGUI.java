@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DemoGUI {
 
@@ -10,7 +8,7 @@ public class DemoGUI {
         JFrame frame = new JFrame("SwingIOC");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
-        frame.setSize(400, 200);
+        frame.setSize(400, 250); // Adjusted size for better layout
         frame.setLocationRelativeTo(null); // Center the window on the screen
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -34,7 +32,7 @@ public class DemoGUI {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 2; // Span both columns
-        gbc.weightx = 0; // Reset weightx
+        gbc.weightx = 0;
         gbc.anchor = GridBagConstraints.CENTER;
         frame.getContentPane().add(button, gbc);
 
@@ -45,16 +43,19 @@ public class DemoGUI {
         frame.getContentPane().add(buttonExit, gbc);
 
         JLabel labelOut = new JLabel();
+        labelOut.setOpaque(true);
+        labelOut.setBackground(new Color(240, 248, 255)); // Alice Blue - a soft pastel color
+        labelOut.setForeground(Color.BLACK);
+        labelOut.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
+        labelOut.setHorizontalAlignment(SwingConstants.CENTER);
+        labelOut.setPreferredSize(new Dimension(300, 40)); // Fixed size for consistent appearance
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 2; // Span both columns
         frame.getContentPane().add(labelOut, gbc);
 
-        buttonExit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        buttonExit.addActionListener(e -> System.exit(0));
+        button.addActionListener(e -> labelOut.setText(text.getText()));
 
         // Set a custom font and color for better aesthetics
         label.setFont(new Font("Arial", Font.BOLD, 14));
@@ -70,5 +71,4 @@ public class DemoGUI {
         // Display the window.
         frame.setVisible(true);
     }
-
-    }
+}

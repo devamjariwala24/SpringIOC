@@ -1,0 +1,31 @@
+Inversion of Control (IoC) is a design principle used in Java (and other programming languages) that inverts the flow
+of control in a program.
+Instead of the application code controlling the flow of the program, control is handed over to a framework.
+This means that the framework calls the application code when it is needed, rather than the application code calling the
+ framework.
+
+In the context of Java and Spring, IoC is typically implemented through Dependency Injection (DI). DI allows the
+creation of dependent objects outside of a class and provides those objects to a class in various ways. There are three main types of DI:
+
+Constructor Injection: Dependencies are provided through a class constructor.
+Setter Injection: Dependencies are provided through setter methods.
+Field Injection: Dependencies are directly assigned to fields.
+IoC helps in creating loosely coupled and more testable code.
+
+Plain Old Java Object (POJO)
+A Plain Old Java Object (POJO) is an ordinary Java object, not bound by any special restriction other than those forced
+by the Java Language Specification and not requiring any classpath. POJOs are used to increase the readability and
+reusability of a program. They are simple objects that don't need to extend any class or implement any interface
+other than the standard Java ones.
+
+Characteristics of POJOs:
+
+They do not have any special restrictions other than those enforced by the Java language.
+They are not dependent on any framework-specific classes or annotations.
+They can be used anywhere and are easier to serialize and deserialize.
+They enhance the readability and simplicity of the code.
+POJOs are often used with frameworks like Spring to represent data and objects within the application,
+ making the code more modular and maintainable.
+
+Here, we start our new thread where we start our GUI, starting our event loop. If something happens in the GUI application,
+the event is captured in the framework and then we provide a function to act according to the event.
